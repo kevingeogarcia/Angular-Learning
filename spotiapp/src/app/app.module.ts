@@ -6,17 +6,30 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { SearchComponent } from './components/search/search.component';
+import {
+  NavbarComponent
+} from './components/shared/navbar/navbar.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
+import { CountryComponent } from './components/country/country.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ArtistComponent,
-    SearchComponent
+    NavbarComponent,
+    SearchComponent,
+    CountryComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
