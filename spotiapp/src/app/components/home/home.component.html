@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div class="row row-cols-md-3 g-4 m-5">
+    <div class="col"  *ngFor="let cancion of newSongs" >
+      <div class="card ">
+        <img [src]="cancion.images[0].url" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{cancion.name}}</h5>
+          <p class="card-text">
+            <span  class="badge rounded-pill text-bg-primary" *ngFor="let artist of cancion.artists">{{artist.name}}</span>
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div>
+</div>

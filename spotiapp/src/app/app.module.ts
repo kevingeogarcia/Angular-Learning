@@ -15,6 +15,9 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { CountryComponent } from './components/country/country.component';
 
+// services 
+import { SpotifyService } from './services/spotify.service';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,7 @@ import { CountryComponent } from './components/country/country.component';
     AppRoutingModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
-  providers: [],
+  providers: [SpotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
