@@ -4,14 +4,4 @@
     </div>
 </div>
 
-<div class="row row-cols-md-3 g-4 m-5 ">
-    <div class="col"  *ngFor="let artist of artist" >
-      <div class="card ">
-        <img [src]="artist.images[0].url" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{artist.name}}</h5>
-          
-        </div>
-      </div>
-    </div>
-</div>
+<app-tarjetas [items] ="artist"></app-tarjetas>

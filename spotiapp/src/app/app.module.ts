@@ -18,6 +18,10 @@ import { CountryComponent } from './components/country/country.component';
 // services 
 import { SpotifyService } from './services/spotify.service';
 
+// pipes
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { SpotifyService } from './services/spotify.service';
     ArtistComponent,
     NavbarComponent,
     SearchComponent,
-    CountryComponent
+    CountryComponent,
+    NoimagePipe,
+    TarjetasComponent
   ],
   imports: [
     HttpClientModule,
