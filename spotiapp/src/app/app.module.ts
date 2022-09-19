@@ -9,6 +9,7 @@ import { SearchComponent } from './components/search/search.component';
 import {
   NavbarComponent
 } from './components/shared/navbar/navbar.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -23,6 +24,7 @@ import { NoimagePipe } from './pipes/noimage.pipe';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
     SearchComponent,
     CountryComponent,
     NoimagePipe,
-    TarjetasComponent
+    TarjetasComponent,
+    LoadingComponent
   ],
   imports: [
     HttpClientModule,

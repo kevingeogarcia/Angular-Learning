@@ -10,11 +10,16 @@ export class HomeComponent {
 
 
   newSongs: any[] = [];
+  loading : boolean;
   constructor(private spotifyService: SpotifyService) {
-    spotifyService.getNewReleases().subscribe((data:any) => {
-      this.newSongs = data;
-    })
-
+    this.loading=true;
+    
+    setTimeout( () => {
+      spotifyService.getNewReleases().subscribe((data:any) => {
+        this.newSongs = data;
+        this.loading = false;
+      })
+    }, 2000)
   }
 
 
