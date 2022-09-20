@@ -1,6 +1,6 @@
-<div class="row row-cols-md-3 g-4 m-5">
-    <div class="col" *ngFor="let item of items">
-        <div class="card ">
+<div class="row row-cols-md-3 g-4 m-5 animated fadeIn">
+    <div (click)="showArtist(item)" class="col" *ngFor="let item of items">
+        <div class="card  puntero">
             <img [src]="item.images | noimage " class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{item.name}}</h5>
