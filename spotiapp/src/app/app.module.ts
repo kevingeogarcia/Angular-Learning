@@ -22,6 +22,8 @@ import { SpotifyService } from './services/spotify.service';
 // pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { DomseguroPipe } from './pipes/DomSeguroPipe';
+import { DomSeguroPipeMoreParameters } from './pipes/DomSeguroPipeMoreParameters';
 
 
 
@@ -34,6 +36,8 @@ import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
     SearchComponent,
     CountryComponent,
     NoimagePipe,
+    DomseguroPipe,
+    DomSeguroPipeMoreParameters,
     TarjetasComponent,
     LoadingComponent
   ],

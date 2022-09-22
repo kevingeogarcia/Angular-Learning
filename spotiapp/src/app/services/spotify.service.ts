@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class SpotifyService {
 
 
-  token: String = "Bearer BQD1R-lHfLEY31kMl2sDzWnubobHwUCba348GxzeNSJxCIKwgiqkTOoK24tynRuGKc8137eqjF3IVA0MWbHsiqwAA8FxD0zWmhfO9daxMO-fUQpagOI";
+  token: String = "Bearer BQA0bUwb9JKmYFBjwlf-FJE8KNSNbWDeBEg5WTmS4I7OIre3It-H8jbxDQnR5pllOCD2C69E2SEH6a2ufCnhGpPXcLhtjDbi1NXU-JA1e5peg5ttB_s";
   constructor(private http: HttpClient) {
   }
 
@@ -23,15 +23,19 @@ export class SpotifyService {
   }
 
   getNewReleases() {
-    return this.buildQuery('browse/new-releases').pipe(map((data: any) => data?.albums.items));
+    return this.buildQuery('browse/new-releases').pipe(map((data: any) => data['albums'].items));
   }
 
   getArtists(q: String) {
-    return this.buildQuery(`search?q=${q}&type=artist`).pipe(map((data: any) => data.artists.items));
+    return this.buildQuery(`search?q=${q}&type=artist`).pipe(map((data: any) => data['artists'].items));
   }
 
   getArtist(id: String) {
     return this.buildQuery(`artists/${id}`);//.pipe(map((data: any) => data.artists.items));
+  }
+
+  getTopTracks(id: String) {
+    return this.buildQuery(`artists/${id}/top-tracks?country=us`).pipe(map((data: any) => data['tracks']));
   }
 
 }
