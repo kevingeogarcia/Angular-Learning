@@ -11,9 +11,17 @@ export class SpotifyService {
 
 
   token: String = '';
+
+
   clientId: String = 'client_id';
   clientSecret: String = 'client_secret';
-
+  /*
+    you can generate your credentials at this link.
+          ======>   https://developer.spotify.com/dashboard/applications
+    For this you must have a spotify account and create an application in it you will find:
+          ======> client_id
+          ======> client_secret
+  */
 
   constructor(private http: HttpClient) {
     this.buildQueryLogin().subscribe((data: any) => {
