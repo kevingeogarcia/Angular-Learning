@@ -1,6 +1,6 @@
 <app-loading *ngIf="loading"></app-loading>
 
-<div *ngIf="!loading" class="row m-5 animated fadeIn">
+<div *ngIf="!loading" class="row m-2 animated fadeIn">
     <div class="col-2">
         <img [src]="artist.images  | noimage " class="img  rounded-circle img-thumbnail">
     </div>
@@ -18,8 +18,8 @@
         </button>
     </div>
 
-    <div class="row m-5">
-        <div class="col">
+ 
+        <div class="table-responsive">
             <table class="table text-white">
                 <thead>
                     <tr>
@@ -36,7 +36,7 @@
                         <td>{{track.album.name}}</td>
                         <td>{{track.name}}</td>
 
-                         <!-- // this code get domseguro whith 2 parameters  -->
+                        <!-- // this code get domseguro whith 2 parameters  -->
                         <!-- <td>
                             <iframe style="border-radius:12px"
                                 [src]="track.id | domseguromoreparameters: 'https://open.spotify.com/embed/track/' : '?utm_source=generator'"
@@ -45,11 +45,9 @@
                                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                 loading="lazy"></iframe>
                         </td> -->
-                       
                         <td class="text-center">
-                            <iframe style="border-radius:12px"
-                                [src]="track.id | domseguro "
-                                width="70%" height="100" frameBorder="0" allowfullscreen=""
+                            <iframe style="border-radius:12px" [src]="track.id | domseguro " width="400" height="150"
+                                frameBorder="0" allowfullscreen=""
                                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                 loading="lazy"></iframe>
                         </td>
@@ -58,5 +56,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    
 </div>

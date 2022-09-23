@@ -13,8 +13,8 @@ export class SpotifyService {
   token: String = '';
 
 
-  clientId: String = 'client_id';
-  clientSecret: String = 'client_secret';
+  clientId: String = '76570198bdad45a085725ecb132b5970';
+  clientSecret: String = 'e816dbd5d12a410891872e8c973d503e';
   /*
     you can generate your credentials at this link.
           ======>   https://developer.spotify.com/dashboard/applications
