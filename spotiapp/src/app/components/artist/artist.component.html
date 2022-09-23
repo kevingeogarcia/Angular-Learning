@@ -31,7 +31,7 @@
                 </thead>
 
                 <tbody>
-                    <tr *ngFor="let track of topTracks">
+                    <tr *ngFor="let track of topTracks" class="text-center">
                         <td><img [src]="track.album.images | noimage" class="img-thumb" alt=""></td>
                         <td>{{track.album.name}}</td>
                         <td>{{track.name}}</td>
