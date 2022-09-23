@@ -1,8 +1,9 @@
 <app-loading *ngIf="loading" class="m-5"></app-loading>
 <div *ngIf="error" class="alert alert-danger animated fadeIn">
- <h3>Error</h3>
- <p>
-   {{errorMessage}}
- </p>
+   <h3>Error</h3>
+   <p>
+      {{errorMessage}}
+   </p>
+   <button class="btn btn-dark animated fadeIn" (click)="refreshToken()"> Generar Nuevo Token </button>
 </div>
-<app-tarjetas [items] ="newSongs"></app-tarjetas>
+<app-tarjetas [items]="newSongs"></app-tarjetas>

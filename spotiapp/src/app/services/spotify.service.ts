@@ -10,8 +10,32 @@ import { map } from 'rxjs/operators';
 export class SpotifyService {
 
 
-  token: String = "Bearer BQB0eGb0O4Fdgr2EHxhwsHis xyBBhRzLQ7mgv2i6fFxuvUpSf00a67OPNckuZ8ATy0tryB6GxSg6lKfPn_bADn9FWSCLFrY8UJohyOCO53XatUIbCP4";
+  token: String = '';
+  clientId: String = 'client_id';
+  clientSecret: String = 'client_secret';
+
+
   constructor(private http: HttpClient) {
+    this.buildQueryLogin().subscribe((data: any) => {
+      this.token = `Bearer ${data.access_token}`;
+    });
+  }
+
+
+  buildQueryLogin() {
+    const authorizationTokenUrl = `https://accounts.spotify.com/api/token`;
+    const body = 'grant_type=client_credentials';
+    return this.http.post(authorizationTokenUrl, body, {
+      headers: new HttpHeaders({
+        Authorization:
+          'Basic  ' + btoa(this.clientId + ':' + this.clientSecret),
+        'Content-Type': 'application/x-www-form-urlencoded;',
+      }),
+    });
+  }
+
+  getToken() {
+    return this.buildQueryLogin().pipe(map((data: any) => data['access_token']));
   }
 
   buildQuery(q: String) {

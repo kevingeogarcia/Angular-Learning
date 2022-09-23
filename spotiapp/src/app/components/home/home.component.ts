@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class HomeComponent {
 
   //valiable to control logic 
   newSongs: any[] = [];
-  loading: boolean;
+  loading: boolean = true;
 
   // variable to error
   error: boolean = true;
@@ -19,19 +19,30 @@ export class HomeComponent {
 
 
   constructor(private spotifyService: SpotifyService) {
+    this.getData();
+  }
+  getData() {
     this.loading = true;
     this.error = false;
+
     setTimeout(() => {
-      spotifyService.getNewReleases().subscribe((data: any) => {
+      this.spotifyService.getNewReleases().subscribe((data: any) => {
         this.newSongs = data;
         this.loading = false;
       }, (errorService) => {
         this.error = true;
         this.loading = false;
         this.errorMessage = errorService.error.error.message;
+        console.log(this.errorMessage);
       })
     }, 2000)
   }
 
+  refreshToken() {
+    this.spotifyService.buildQueryLogin().subscribe((data: any) => {
+      this.spotifyService.token = `Bearer ${data.access_token}`;
+    });
+    this.getData();
+  }
 
 }
